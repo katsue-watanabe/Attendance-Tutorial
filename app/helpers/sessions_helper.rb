@@ -10,14 +10,14 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
   
-  def foget(user)
+  def forget(user)
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
    
   def log_out
-   foget(current_user)
+   forget(current_user)
    session.delete(:user_id)
    @current_user = nil
   end
